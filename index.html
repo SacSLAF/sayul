@@ -1,443 +1,549 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Sri Lanka | Private Van Hire with Driver</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-+   <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore Sri Lanka | Sayul Ceylon Tours</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    +
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <!-- Header & Navigation -->
     <header>
-        <div class="container header-container">
-            <a href="#" class="logo">
-                <i class="fas fa-van-shuttle"></i>
-                Sayul Ceylon
-            </a>
-            
-            <div class="mobile-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-            
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#packages">Packages</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#booking">Book Now</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+      <div class="container header-container">
+        <a href="#" class="logo">
+          <!-- <i class="fas fa-van-shuttle"></i> -->
+          <img src="assets/img/logo.png" alt="" />
+          Sayul Ceylon
+        </a>
+
+        <div class="mobile-toggle">
+          <i class="fas fa-bars"></i>
         </div>
+
+        <ul class="nav-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#booking">Book Now</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="container hero-content">
-            <h1>Explore Sri Lanka in Comfort</h1>
-            <p>Private Van Hire with Professional Driver</p>
-            <div class="hero-buttons">
-                <a href="#packages" class="btn">View Packages</a>
-                <a href="#booking" class="btn btn-secondary">Book Now</a>
-                <a href="https://wa.me/94773324056" class="btn btn-whatsapp" target="_blank">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-            </div>
+      <div class="video-background">
+        <video autoplay muted loop playsinline>
+          <!-- You can replace this with your own video -->
+          <source
+            src="assets/video/background.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-overlay"></div>
+      <div class="container hero-content">
+        <h1>Explore Sri Lanka in Comfort</h1>
+        <p>Private Van Hire with Professional Driver</p>
+        <div class="hero-buttons">
+          <a href="#packages" class="btn btn-primary">View Packages</a>
+          <a href="#booking" class="btn btn-secondary">Book Now</a>
+          <a
+            href="https://wa.me/94773324056"
+            class="btn btn-whatsapp"
+            target="_blank"
+          >
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
         </div>
+      </div>
     </section>
 
     <!-- Packages Section -->
     <section class="section packages" id="packages">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Packages</h2>
-            </div>
-            
-            <div class="packages-grid">
-                <!-- Package 1 -->
-                <div class="package-card">
-                    <div class="package-img">
-                        <img src="https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Half Day Tour">
-                    </div>
-                    <div class="package-content">
-                        <h3>Half Day Tour</h3>
-                        <div class="package-price">$40</div>
-                        <ul class="package-features">
-                            <li>4 hours of service</li>
-                            <li>City sightseeing</li>
-                            <li>Professional driver</li>
-                            <li>Air-conditioned van</li>
-                        </ul>
-                        <a href="#booking" class="btn">Book Now</a>
-                    </div>
-                </div>
-                
-                <!-- Package 2 -->
-                <div class="package-card">
-                    <div class="package-img">
-                        <img src="https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Full Day Tour">
-                    </div>
-                    <div class="package-content">
-                        <h3>Full Day Tour</h3>
-                        <div class="package-price">$70</div>
-                        <ul class="package-features">
-                            <li>8 hours of service</li>
-                            <li>Explore multiple locations</li>
-                            <li>Professional driver</li>
-                            <li>Air-conditioned van</li>
-                            <li>Bottled water included</li>
-                        </ul>
-                        <a href="#booking" class="btn">Book Now</a>
-                    </div>
-                </div>
-                
-                <!-- Package 3 -->
-                <div class="package-card">
-                    <div class="package-img">
-                        <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80" alt="Airport Transfer">
-                    </div>
-                    <div class="package-content">
-                        <h3>Airport Transfer</h3>
-                        <div class="package-price">$35</div>
-                        <ul class="package-features">
-                            <li>Pickup or drop-off</li>
-                            <li>Flight tracking</li>
-                            <li>Meet & greet service</li>
-                            <li>Air-conditioned van</li>
-                            <li>Luggage assistance</li>
-                        </ul>
-                        <a href="#booking" class="btn">Book Now</a>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Packages</h2>
         </div>
+
+        <div class="packages-grid">
+          <!-- Package 1 -->
+          <div class="package-card">
+            <div class="package-img">
+              <img
+                src="https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                alt="Half Day Tour"
+              />
+            </div>
+            <div class="package-content">
+              <h3>Half Day Tour</h3>
+              <div class="package-price">$40</div>
+              <ul class="package-features">
+                <li>4 hours of service</li>
+                <li>City sightseeing</li>
+                <li>Professional driver</li>
+                <li>Air-conditioned van</li>
+              </ul>
+              <a href="#booking" class="btn">Book Now</a>
+            </div>
+          </div>
+
+          <!-- Package 2 -->
+          <div class="package-card">
+            <div class="package-img">
+              <img
+                src="https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                alt="Full Day Tour"
+              />
+            </div>
+            <div class="package-content">
+              <h3>Full Day Tour</h3>
+              <div class="package-price">$70</div>
+              <ul class="package-features">
+                <li>8 hours of service</li>
+                <li>Explore multiple locations</li>
+                <li>Professional driver</li>
+                <li>Air-conditioned van</li>
+                <li>Bottled water included</li>
+              </ul>
+              <a href="#booking" class="btn">Book Now</a>
+            </div>
+          </div>
+
+          <!-- Package 3 -->
+          <div class="package-card">
+            <div class="package-img">
+              <img
+                src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80"
+                alt="Airport Transfer"
+              />
+            </div>
+            <div class="package-content">
+              <h3>Airport Transfer</h3>
+              <div class="package-price">$35</div>
+              <ul class="package-features">
+                <li>Pickup or drop-off</li>
+                <li>Flight tracking</li>
+                <li>Meet & greet service</li>
+                <li>Air-conditioned van</li>
+                <li>Luggage assistance</li>
+              </ul>
+              <a href="#booking" class="btn">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- About Section -->
     <section class="section about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>About Our Service</h2>
-                    <p>With over 10 years of experience, we provide reliable and comfortable private van hire services across Sri Lanka. Our professional drivers are knowledgeable about local attractions and committed to your safety and satisfaction.</p>
-                    <p>We take pride in offering personalized service that allows you to explore the beauty of Sri Lanka at your own pace, creating unforgettable travel experiences.</p>
-                    
-                    <div class="about-features">
-                        <div class="feature">
-                            <i class="fas fa-shield-alt"></i>
-                            <div>
-                                <h4>Safety First</h4>
-                                <p>Well-maintained vehicles and experienced drivers</p>
-                            </div>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-map-marked-alt"></i>
-                            <div>
-                                <h4>Local Knowledge</h4>
-                                <p>Expert guidance to hidden gems and popular spots</p>
-                            </div>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h4>Punctual Service</h4>
-                                <p>We value your time with prompt pickups</p>
-                            </div>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-smile"></i>
-                            <div>
-                                <h4>Friendly Drivers</h4>
-                                <p>Courteous and professional service guaranteed</p>
-                            </div>
-                        </div>
-                    </div>
+      <div class="container">
+        <div class="about-content">
+          <div class="about-text">
+            <h2>About Our Service</h2>
+            <p>
+              With over 10 years of experience, we provide reliable and
+              comfortable private van hire services across Sri Lanka. Our
+              professional drivers are knowledgeable about local attractions and
+              committed to your safety and satisfaction.
+            </p>
+            <p>
+              We take pride in offering personalized service that allows you to
+              explore the beauty of Sri Lanka at your own pace, creating
+              unforgettable travel experiences.
+            </p>
+
+            <div class="about-features">
+              <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                  <h4>Safety First</h4>
+                  <p>Well-maintained vehicles and experienced drivers</p>
                 </div>
-                
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80" alt="Our Van and Driver">
+              </div>
+              <div class="feature">
+                <i class="fas fa-map-marked-alt"></i>
+                <div>
+                  <h4>Local Knowledge</h4>
+                  <p>Expert guidance to hidden gems and popular spots</p>
                 </div>
+              </div>
+              <div class="feature">
+                <i class="fas fa-clock"></i>
+                <div>
+                  <h4>Punctual Service</h4>
+                  <p>We value your time with prompt pickups</p>
+                </div>
+              </div>
+              <div class="feature">
+                <i class="fas fa-smile"></i>
+                <div>
+                  <h4>Friendly Drivers</h4>
+                  <p>Courteous and professional service guaranteed</p>
+                </div>
+              </div>
             </div>
+          </div>
+
+          <div class="about-image">
+            <img
+              src="https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80"
+              alt="Our Van and Driver"
+            />
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Gallery Section -->
     <section class="section" id="gallery">
-        <div class="container">
-            <div class="section-title">
-                <h2>Travel Gallery</h2>
-            </div>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1544644181-1484c5a6b748?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Sri Lanka Scenery">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80" alt="Comfortable Van">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1598970605070-1d4e94b4e4bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Beautiful Beaches">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Cultural Sites">
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-title">
+          <h2>Travel Gallery</h2>
         </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1544644181-1484c5a6b748?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+              alt="Sri Lanka Scenery"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80"
+              alt="Comfortable Van"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1598970605070-1d4e94b4e4bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+              alt="Beautiful Beaches"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+              alt="Cultural Sites"
+            />
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Testimonials Section -->
     <section class="section testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Customer Reviews</h2>
-            </div>
-            
-            <div class="testimonials-grid">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        "Our driver was incredibly knowledgeable and took us to some hidden gems we would have never found on our own. The van was comfortable and clean. Highly recommend!"
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah Johnson">
-                        </div>
-                        <div class="author-info">
-                            <h4>Sarah Johnson</h4>
-                            <p>Australia</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        "The airport transfer was seamless. Our driver was waiting for us with a sign, helped with our luggage, and got us to our hotel safely. Great service!"
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="David Chen">
-                        </div>
-                        <div class="author-info">
-                            <h4>David Chen</h4>
-                            <p>Singapore</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        "We booked a multi-day tour and couldn't be happier. The driver was punctual, friendly, and went above and beyond to make our trip memorable. Will use again!"
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Maria Rodriguez">
-                        </div>
-                        <div class="author-info">
-                            <h4>Maria Rodriguez</h4>
-                            <p>Spain</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-title">
+          <h2>Customer Reviews</h2>
         </div>
+
+        <div class="testimonials-grid">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              "Our driver was incredibly knowledgeable and took us to some
+              hidden gems we would have never found on our own. The van was
+              comfortable and clean. Highly recommend!"
+            </div>
+            <div class="testimonial-author">
+              <div class="author-img">
+                <img
+                  src="https://randomuser.me/api/portraits/women/45.jpg"
+                  alt="Sarah Johnson"
+                />
+              </div>
+              <div class="author-info">
+                <h4>Sarah Johnson</h4>
+                <p>Australia</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              "The airport transfer was seamless. Our driver was waiting for us
+              with a sign, helped with our luggage, and got us to our hotel
+              safely. Great service!"
+            </div>
+            <div class="testimonial-author">
+              <div class="author-img">
+                <img
+                  src="https://randomuser.me/api/portraits/men/32.jpg"
+                  alt="David Chen"
+                />
+              </div>
+              <div class="author-info">
+                <h4>David Chen</h4>
+                <p>Singapore</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              "We booked a multi-day tour and couldn't be happier. The driver
+              was punctual, friendly, and went above and beyond to make our trip
+              memorable. Will use again!"
+            </div>
+            <div class="testimonial-author">
+              <div class="author-img">
+                <img
+                  src="https://randomuser.me/api/portraits/women/68.jpg"
+                  alt="Maria Rodriguez"
+                />
+              </div>
+              <div class="author-info">
+                <h4>Maria Rodriguez</h4>
+                <p>Spain</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Booking Section -->
-    <section class="section" id="booking" style="display: none;">
-        <div class="container">
-            <div class="section-title">
-                <h2>Book Your Journey</h2>
-            </div>
-            
-            <div class="booking-form">
-                <form id="bookingForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="package">Select Package</label>
-                            <select id="package" name="package" required>
-                                <option value="">Choose a package</option>
-                                <option value="half-day">Half Day Tour - $40</option>
-                                <option value="full-day">Full Day Tour - $70</option>
-                                <option value="airport">Airport Transfer - $35</option>
-                                <option value="multi-day">Multi-Day Tour - Custom</option>
-                                <option value="custom">Custom Hire - Custom</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="date">Preferred Date</label>
-                            <input type="date" id="date" name="date" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="passengers">Number of Passengers</label>
-                            <select id="passengers" name="passengers" required>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6+</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Special Requests</label>
-                        <textarea id="message" name="message" placeholder="Tell us about your travel plans, pickup location, or any special requirements..."></textarea>
-                    </div>
-                    
-                    <div class="form-submit">
-                        <button type="submit" class="btn">Submit Booking Request</button>
-                        <p style="margin-top: 15px;">Or contact us directly via <a href="https://wa.me/94773324056" class="whatsapp-contact" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></p>
-                    </div>
-                </form>
-            </div>
+    <section class="section" id="booking" style="display: none">
+      <div class="container">
+        <div class="section-title">
+          <h2>Book Your Journey</h2>
         </div>
+
+        <div class="booking-form">
+          <form id="bookingForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required />
+              </div>
+              <div class="form-group">
+                <label for="package">Select Package</label>
+                <select id="package" name="package" required>
+                  <option value="">Choose a package</option>
+                  <option value="half-day">Half Day Tour - $40</option>
+                  <option value="full-day">Full Day Tour - $70</option>
+                  <option value="airport">Airport Transfer - $35</option>
+                  <option value="multi-day">Multi-Day Tour - Custom</option>
+                  <option value="custom">Custom Hire - Custom</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="date">Preferred Date</label>
+                <input type="date" id="date" name="date" required />
+              </div>
+              <div class="form-group">
+                <label for="passengers">Number of Passengers</label>
+                <select id="passengers" name="passengers" required>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Special Requests</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Tell us about your travel plans, pickup location, or any special requirements..."
+              ></textarea>
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn">Submit Booking Request</button>
+              <p style="margin-top: 15px">
+                Or contact us directly via
+                <a
+                  href="https://wa.me/94773324056"
+                  class="whatsapp-contact"
+                  target="_blank"
+                  ><i class="fab fa-whatsapp"></i> WhatsApp</a
+                >
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
     <section class="section contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contact Us</h2>
-            </div>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <p>Ready to explore Sri Lanka? Contact us to book your private van hire or ask any questions about our services.</p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-phone-alt"></i>
-                            <div>+94 77 332 4056</div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>sayulceylonparadisetours@gmail.com</div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>Colombo, Sri Lanka</div>
-                        </div>
-                    </div>
-                    
-                    <a href="https://wa.me/94773324056" class="whatsapp-contact" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Message us on WhatsApp
-                    </a>
-                </div>
-                
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126743.58638743578!2d79.78616430488758!3d6.921831294874699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae253d10f7a7003%3A0x320b2e4d32d3838d!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1689876543210!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact Us</h2>
         </div>
+
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3>Get In Touch</h3>
+            <p>
+              Ready to explore Sri Lanka? Contact us to book your private van
+              hire or ask any questions about our services.
+            </p>
+
+            <div class="contact-details">
+              <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <div>+94 77 332 4056</div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div>sayulceylonparadisetours@gmail.com</div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>Colombo, Sri Lanka</div>
+              </div>
+            </div>
+
+            <a
+              href="https://wa.me/94773324056"
+              class="whatsapp-contact"
+              target="_blank"
+            >
+              <i class="fab fa-whatsapp"></i> Message us on WhatsApp
+            </a>
+          </div>
+
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126743.58638743578!2d79.78616430488758!3d6.921831294874699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae253d10f7a7003%3A0x320b2e4d32d3838d!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1689876543210!5m2!1sen!2sus"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Explore Sri Lanka</h3>
-                    <p>Your trusted partner for private van hire with professional drivers across Sri Lanka.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#packages">Packages</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#booking">Book Now</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Our Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#packages">Half Day Tours</a></li>
-                        <li><a href="#packages">Full Day Tours</a></li>
-                        <li><a href="#packages">Multi-Day Tours</a></li>
-                        <li><a href="#packages">Airport Transfers</a></li>
-                        <li><a href="#packages">Custom Hire</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Contact Info</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-phone-alt"></i> +94 77 332 4056</li>
-                        <li><i class="fas fa-envelope"></i> sayulceylonparadisetours@gmail.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</li>
-                    </ul>
-                </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Explore Sri Lanka</h3>
+            <p>
+              Your trusted partner for private van hire with professional
+              drivers across Sri Lanka.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-tripadvisor"></i></a>
             </div>
-            
-            <div class="copyright">
-                <p>&copy; 2023 Explore Sri Lanka - Private Van Hire. All rights reserved.</p>
-            </div>
+          </div>
+
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#packages">Packages</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#booking">Book Now</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Our Services</h3>
+            <ul class="footer-links">
+              <li><a href="#packages">Half Day Tours</a></li>
+              <li><a href="#packages">Full Day Tours</a></li>
+              <li><a href="#packages">Multi-Day Tours</a></li>
+              <li><a href="#packages">Airport Transfers</a></li>
+              <li><a href="#packages">Custom Hire</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Contact Info</h3>
+            <ul class="footer-links">
+              <li><i class="fas fa-phone-alt"></i> +94 77 332 4056</li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                sayulceylonparadisetours@gmail.com
+              </li>
+              <li><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</li>
+            </ul>
+          </div>
         </div>
+
+        <div class="copyright">
+          <p>
+            &copy; 2023 Explore Sri Lanka - Private Van Hire. All rights
+            reserved.
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script>
-        // Mobile Navigation Toggle
-        document.querySelector('.mobile-toggle').addEventListener('click', function() {
-            document.querySelector('.nav-menu').classList.toggle('active');
+      // Mobile Navigation Toggle
+      document
+        .querySelector(".mobile-toggle")
+        .addEventListener("click", function () {
+          document.querySelector(".nav-menu").classList.toggle("active");
         });
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelector('.nav-menu').classList.remove('active');
-            });
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll(".nav-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          document.querySelector(".nav-menu").classList.remove("active");
+        });
+      });
+
+      // Form Submission
+      document
+        .getElementById("bookingForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert(
+            "Thank you for your booking request! We will contact you shortly to confirm your reservation."
+          );
+          this.reset();
         });
 
-        // Form Submission
-        document.getElementById('bookingForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your booking request! We will contact you shortly to confirm your reservation.');
-            this.reset();
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-            } else {
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-            }
-        });
+      // Header scroll effect
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        if (window.scrollY > 100) {
+          header.style.backgroundColor = "rgba(255, 255, 255, 0.98)";
+          header.style.boxShadow = "0 2px 20px rgba(0,0,0,0.1)";
+        } else {
+          header.style.backgroundColor = "rgba(255, 255, 255, 0.95)";
+          header.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
+        }
+      });
     </script>
-</body>
+  </body>
 </html>

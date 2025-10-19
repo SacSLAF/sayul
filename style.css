@@ -160,6 +160,12 @@ header {
   font-size: 1.8rem;
 }
 
+.logo img {
+  height: 40px;
+  width: auto;
+  margin-right: 10px;
+}
+
 .nav-menu {
   display: flex;
   list-style: none;
@@ -203,41 +209,190 @@ header {
   cursor: pointer;
 }
 
-/* Hero Section */
+/* Hero Section with Video */
 .hero {
+  position: relative;
   height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://images.unsplash.com/photo-1559666126-84d0e0a5ebf6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80");
-  background-size: cover;
-  background-position: center;
+  width: 100%;
+  overflow: hidden;
   display: flex;
   align-items: center;
   text-align: center;
   color: white;
 }
 
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+}
+
 .hero-content {
+  position: relative;
+  z-index: 1;
   max-width: 800px;
   margin: 0 auto;
+  padding: 0 20px;
+  animation: fadeIn 1.5s ease-out;
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: 1.5rem;
-  animation: fadeInUp 1s ease;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  animation: slideDown 1s ease-out;
 }
 
 .hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  animation: fadeInUp 1s ease 0.2s both;
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  animation: slideUp 1s ease-out 0.3s both;
 }
 
 .hero-buttons {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  animation: fadeInUp 1s ease 0.4s both;
+  gap: 20px;
+  flex-wrap: wrap;
+  animation: fadeIn 1s ease-out 0.6s both;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-primary {
+  background: #ff6b00;
+  color: white;
+  border: 2px solid #ff6b00;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  border-color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-secondary:hover {
+  background: white;
+  color: #333;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-whatsapp {
+  background: #25d366;
+  color: white;
+  border: 2px solid #25d366;
+}
+
+.btn-whatsapp:hover {
+  background: #128c7e;
+  border-color: #128c7e;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn i {
+  margin-right: 8px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 80%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
 }
 
 /* Packages Section */
