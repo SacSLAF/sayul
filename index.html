@@ -329,7 +329,7 @@
     </section>
 
     <!-- Gallery Section -->
-    <section class="section" id="gallery">
+    <!-- <section class="section" id="gallery">
       <div class="container">
         <div class="section-title">
           <h2>Travel Gallery</h2>
@@ -362,7 +362,118 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
+    <section class="section" id="gallery">
+      <div class="container">
+          <div class="section-title">
+              <h2>Travel Gallery</h2>
+          </div>
+
+          <div class="gallery-grid">
+              <div class="gallery-item" data-index="0">
+                  <img
+                      src="assets/img/gallery/anuradhapura.webp"
+                      alt="Ancient Ruins of Anuradhapura"
+                  />
+                  <div class="gallery-overlay">
+                      <h3>Ancient Ruins of Anuradhapura</h3>
+                      <p>Sri Lanka's ancient capital with well-preserved ruins</p>
+                  </div>
+              </div>
+              <div class="gallery-item" data-index="1">
+                  <img
+                      src="assets/img/gallery/kandy.webp"
+                      alt="Comfortable Travel Van"
+                  />
+                  <div class="gallery-overlay">
+                      <h3>Comfortable Travel Van</h3>
+                      <p>Luxury transportation for your Sri Lankan journey</p>
+                  </div>
+              </div>
+              <div class="gallery-item" data-index="2">
+                  <img
+                      src="assets/img/gallery/sigiriya.webp"
+                      alt="Sigiriya Rock Fortress"
+                  />
+                  <div class="gallery-overlay">
+                      <h3>Sigiriya Rock Fortress</h3>
+                      <p>Ancient rock fortress with stunning panoramic views</p>
+                  </div>
+              </div>
+              <div class="gallery-item" data-index="3">
+                  <img
+                      src="assets/img/gallery/weligama.webp"
+                      alt="Weligama Beach"
+                  />
+                  <div class="gallery-overlay">
+                      <h3>Weligama Beach</h3>
+                      <p>Beautiful sandy beaches with crystal clear waters</p>
+                  </div>
+              </div>
+              <!-- <div class="gallery-item" data-index="4">
+                  <img
+                      src="https://images.unsplash.com/photo-1564507004663-b6dfb3e2ede5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                      alt="Temple of the Sacred Tooth Relic"
+                  />
+                  <div class="gallery-overlay">
+                      <h3>Temple of the Sacred Tooth Relic</h3>
+                      <p>Kandy's most important Buddhist temple</p>
+                  </div>
+              </div> -->
+              <!-- <div class="gallery-item" data-index="5">
+                  <img
+                      src="https://images.unsplash.com/photo-1573843989-c9d4a65d6c8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                      alt="Ella Rock Hike"
+                  />
+                  <div class="gallery-overlay">
+                      <h3>Ella Rock Hike</h3>
+                      <p>Breathtaking views from one of Sri Lanka's best hikes</p>
+                  </div>
+              </div> -->
+              <!-- <div class="gallery-item" data-index="6">
+                  <img
+                      src="https://images.unsplash.com/photo-1564507004663-b6dfb3e2ede5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                      alt="Traditional Sri Lankan Cuisine"
+                  />
+                  <div class="gallery-overlay">
+                      <h3>Traditional Sri Lankan Cuisine</h3>
+                      <p>Experience the authentic flavors of Sri Lanka</p>
+                  </div>
+              </div> -->
+              <!-- <div class="gallery-item" data-index="7">
+                  <img
+                      src="https://images.unsplash.com/photo-1552465011-b4e30bf7349d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                      alt="Wildlife Safari"
+                  />
+                  <div class="gallery-overlay">
+                      <h3>Wildlife Safari</h3>
+                      <p>Encounter elephants and leopards in their natural habitat</p>
+                  </div>
+              </div> -->
+          </div>
+      </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal">
+      <button class="close-btn" id="closeLightbox">&times;</button>
+      <div class="zoom-hint">
+          <i class="fas fa-search-plus"></i> Click image to zoom in/out
+      </div>
+      <div class="lightbox-content">
+          <img class="lightbox-img" id="lightboxImage" alt="Gallery Image" />
+          <div class="lightbox-nav">
+              <button class="nav-btn" id="prevBtn">
+                  <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="nav-btn" id="nextBtn">
+                  <i class="fas fa-chevron-right"></i>
+              </button>
+          </div>
+          <div class="image-title" id="imageTitle"></div>
+          <div class="image-counter" id="imageCounter"></div>
+      </div>
+  </div>
 
     <!-- Testimonials Section -->
     <section class="section testimonials" id="testimonials">
@@ -531,53 +642,76 @@
     <!-- Contact Section -->
     <section class="section contact" id="contact">
       <div class="container">
-        <div class="section-title">
-          <h2>Contact Us</h2>
-        </div>
+          <!-- <div class="section-title">
+              <h2>Contact Us</h2>
+          </div> -->
 
-        <div class="contact-content">
-          <div class="contact-info">
-            <h3>Get In Touch</h3>
-            <p>
-              Ready to explore Sri Lanka? Contact us to book your private van
-              hire or ask any questions about our services.
-            </p>
+          <div class="contact-content">
+              <div class="contact-info">
+                  <h3>Get In Touch</h3>
+                  <p>
+                      Ready to explore Sri Lanka? Contact us to book your private van
+                      hire or ask any questions about our services. We're here to help you plan your perfect Sri Lankan adventure.
+                  </p>
 
-            <div class="contact-details">
-              <div class="contact-item">
-                <i class="fas fa-phone-alt"></i>
-                <div>+94 77 332 4056</div>
-              </div>
-              <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <div>sayulceylonparadisetours@gmail.com</div>
-              </div>
-              <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <div>Colombo, Sri Lanka</div>
-              </div>
-            </div>
+                  <div class="contact-details">
+                      <div class="contact-item">
+                          <i class="fas fa-phone-alt"></i>
+                          <div>+94 77 332 4056</div>
+                      </div>
+                      <div class="contact-item">
+                          <i class="fas fa-envelope"></i>
+                          <div>sayulceylonparadisetours@gmail.com</div>
+                      </div>
+                      <div class="contact-item">
+                          <i class="fas fa-map-marker-alt"></i>
+                          <div>Colombo, Sri Lanka</div>
+                      </div>
+                  </div>
 
-            <a
-              href="https://wa.me/94773324056"
-              class="whatsapp-contact"
-              target="_blank"
-            >
-              <i class="fab fa-whatsapp"></i> Message us on WhatsApp
-            </a>
+                  <a
+                      href="https://wa.me/94773324056"
+                      class="whatsapp-contact"
+                      target="_blank"
+                  >
+                      <i class="fab fa-whatsapp"></i> Message us on WhatsApp
+                  </a>
+                  
+                  <div class="social-media">
+                      <a href="#" class="social-icon facebook">
+                          <i class="fab fa-facebook-f"></i>
+                      </a>
+                      <a href="#" class="social-icon instagram">
+                          <i class="fab fa-instagram"></i>
+                      </a>
+                      <a href="#" class="social-icon twitter">
+                          <i class="fab fa-twitter"></i>
+                      </a>
+                      <a href="#" class="social-icon youtube">
+                          <i class="fab fa-youtube"></i>
+                      </a>
+                  </div>
+              </div>
+
+              <div class="map-container">
+                  <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126743.58638743578!2d79.78616430488758!3d6.921831294874699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae253d10f7a7003%3A0x320b2e4d32d3838d!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1689876543210!5m2!1sen!2sus"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+              </div>
           </div>
-
-          <div class="map-container">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126743.58638743578!2d79.78616430488758!3d6.921831294874699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae253d10f7a7003%3A0x320b2e4d32d3838d!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1689876543210!5m2!1sen!2sus"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-        </div>
       </div>
-    </section>
+      
+      <!-- Floating Icons for Decoration -->
+      <div class="floating-icons">
+          <div class="floating-icon"><i class="fas fa-map-marked-alt"></i></div>
+          <div class="floating-icon"><i class="fas fa-car"></i></div>
+          <div class="floating-icon"><i class="fas fa-umbrella-beach"></i></div>
+          <div class="floating-icon"><i class="fas fa-mountain"></i></div>
+      </div>
+  </section>
 
     <!-- Footer -->
     <footer>
@@ -631,13 +765,15 @@
 
         <div class="copyright">
           <p>
-            &copy; 2025 Explore Sri Lanka - Sayul Ceylon Tours. All rights
+            &copy; 2026 Explore Sri Lanka - Sayul Ceylon Tours. All rights
             reserved.
           </p>
         </div>
       </div>
     </footer>
 
+    <script src="assets/js/lightbox.js"></script>
+    <script src="assets/js/contact.js"></script>
     <script>
       // Mobile Navigation Toggle
       document

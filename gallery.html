@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Travel Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+        
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #60a5fa, #a78bfa);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            height: 280px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background-color: #1e293b;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(96, 165, 250, 0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.95), transparent);
+            padding: 1.5rem;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .gallery-overlay h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #f1f5f9;
+        }
+        
+        .gallery-overlay p {
+            font-size: 0.95rem;
+            color: #cbd5e1;
+        }
+        
+        /* Lightbox Modal Styles */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.92);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .lightbox-content {
+            position: relative;
+            width: 90%;
+            max-width: 1200px;
+            height: 85vh;
+            margin: 5vh auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transform: scale(0.95);
+            transition: transform 0.4s ease;
+        }
+        
+        .lightbox-img.zoomed {
+            transform: scale(1.5);
+            cursor: zoom-out;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 2rem;
+        }
+        
+        .nav-btn {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background-color: rgba(96, 165, 250, 0.7);
+            transform: scale(1.1);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 1001;
+        }
+        
+        .close-btn:hover {
+            transform: rotate(90deg);
+            color: #60a5fa;
+        }
+        
+        .image-counter {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 1rem;
+            backdrop-filter: blur(5px);
+        }
+        
+        .image-title {
+            position: absolute;
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 8px 20px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+            max-width: 80%;
+        }
+        
+        .zoom-hint {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 8px 15px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .zoom-hint i {
+            color: #60a5fa;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 1rem;
+            }
+            
+            .gallery-item {
+                height: 220px;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .lightbox-content {
+                width: 95%;
+                height: 70vh;
+                margin: 10vh auto;
+            }
+            
+            .nav-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                padding: 0;
+            }
+            
+            .lightbox-nav {
+                padding: 0 1rem;
+            }
+            
+            .close-btn {
+                top: 15px;
+                right: 20px;
+                font-size: 2rem;
+            }
+            
+            .image-title {
+                font-size: 1.2rem;
+                bottom: 60px;
+            }
+            
+            .zoom-hint {
+                font-size: 0.8rem;
+                top: 15px;
+                padding: 6px 12px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .gallery-item {
+                height: 250px;
+            }
+            
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .lightbox-img.zoomed {
+                transform: scale(1.2);
+            }
+        }
+        
+        /* Animation for lightbox image */
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        .lightbox-img {
+            animation: zoomIn 0.4s ease;
+        }
+        
+        /* Keyboard hint */
+        .keyboard-hint {
+            text-align: center;
+            margin-top: 1rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .keyboard-hint span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #1e293b;
+            padding: 5px 10px;
+            border-radius: 6px;
+            margin: 0 5px;
+        }
+        
+        .keyboard-hint kbd {
+            background-color: #334155;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <section class="section" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Travel Gallery</h2>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" data-index="0">
+                    <img
+                        src="https://images.unsplash.com/photo-1593693397692-8d5966e82e0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                        alt="Ancient Ruins of Anuradhapura"
+                    />
+                    <div class="gallery-overlay">
+                        <h3>Ancient Ruins of Anuradhapura</h3>
+                        <p>Sri Lanka's ancient capital with well-preserved ruins</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="1">
+                    <img
+                        src="https://images.unsplash.com/photo-1573843987-0d5e4c0b73c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                        alt="Comfortable Travel Van"
+                    />
+                    <div class="gallery-overlay">
+                        <h3>Comfortable Travel Van</h3>
+                        <p>Luxury transportation for your Sri Lankan journey</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="2">
+                    <img
+                        src="https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                        alt="Sigiriya Rock Fortress"
+                    />
+                    <div class="gallery-overlay">
+                        <h3>Sigiriya Rock Fortress</h3>
+                        <p>Ancient rock fortress with stunning panoramic views</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="3">
+                    <img
+                        src="https://images.unsplash.com/photo-1552465011-b4e30bf7349d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                        alt="Weligama Beach"
+                    />
+                    <div class="gallery-overlay">
+                        <h3>Weligama Beach</h3>
+                        <p>Beautiful sandy beaches with crystal clear waters</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="4">
+                    <img
+                        src="https://images.unsplash.com/photo-1564507004663-b6dfb3e2ede5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                        alt="Temple of the Sacred Tooth Relic"
+                    />
+                    <div class="gallery-overlay">
+                        <h3>Temple of the Sacred Tooth Relic</h3>
+                        <p>Kandy's most important Buddhist temple</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="5">
+                    <img
+                        src="https://images.unsplash.com/photo-1573843989-c9d4a65d6c8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                        alt="Ella Rock Hike"
+                    />
+                    <div class="gallery-overlay">
+                        <h3>Ella Rock Hike</h3>
+                        <p>Breathtaking views from one of Sri Lanka's best hikes</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="6">
+                    <img
+                        src="https://images.unsplash.com/photo-1564507004663-b6dfb3e2ede5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                        alt="Traditional Sri Lankan Cuisine"
+                    />
+                    <div class="gallery-overlay">
+                        <h3>Traditional Sri Lankan Cuisine</h3>
+                        <p>Experience the authentic flavors of Sri Lanka</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="7">
+                    <img
+                        src="https://images.unsplash.com/photo-1552465011-b4e30bf7349d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                        alt="Wildlife Safari"
+                    />
+                    <div class="gallery-overlay">
+                        <h3>Wildlife Safari</h3>
+                        <p>Encounter elephants and leopards in their natural habitat</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="keyboard-hint">
+                <span><kbd>Click</kbd> to open gallery</span>
+                <span><kbd>←</kbd> <kbd>→</kbd> Navigate images</span>
+                <span><kbd>ESC</kbd> Close gallery</span>
+                <span><kbd>Click</kbd> on image to zoom</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <button class="close-btn" id="closeLightbox">&times;</button>
+        <div class="zoom-hint">
+            <i class="fas fa-search-plus"></i> Click image to zoom in/out
+        </div>
+        <div class="lightbox-content">
+            <img class="lightbox-img" id="lightboxImage" alt="Gallery Image" />
+            <div class="lightbox-nav">
+                <button class="nav-btn" id="prevBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="nav-btn" id="nextBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="image-title" id="imageTitle"></div>
+            <div class="image-counter" id="imageCounter"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gallery data
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const lightboxModal = document.getElementById('lightboxModal');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const closeLightbox = document.getElementById('closeLightbox');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const imageTitle = document.getElementById('imageTitle');
+            const imageCounter = document.getElementById('imageCounter');
+            
+            let currentIndex = 0;
+            let isZoomed = false;
+            
+            // Gallery data for lightbox
+            const galleryData = [
+                {
+                    src: "https://images.unsplash.com/photo-1593693397692-8d5966e82e0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80",
+                    title: "Ancient Ruins of Anuradhapura",
+                    desc: "Sri Lanka's ancient capital with well-preserved ruins"
+                },
+                {
+                    src: "https://images.unsplash.com/photo-1573843987-0d5e4c0b73c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80",
+                    title: "Comfortable Travel Van",
+                    desc: "Luxury transportation for your Sri Lankan journey"
+                },
+                {
+                    src: "https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80",
+                    title: "Sigiriya Rock Fortress",
+                    desc: "Ancient rock fortress with stunning panoramic views"
+                },
+                {
+                    src: "https://images.unsplash.com/photo-1552465011-b4e30bf7349d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80",
+                    title: "Weligama Beach",
+                    desc: "Beautiful sandy beaches with crystal clear waters"
+                },
+                {
+                    src: "https://images.unsplash.com/photo-1564507004663-b6dfb3e2ede5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80",
+                    title: "Temple of the Sacred Tooth Relic",
+                    desc: "Kandy's most important Buddhist temple"
+                },
+                {
+                    src: "https://images.unsplash.com/photo-1573843989-c9d4a65d6c8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80",
+                    title: "Ella Rock Hike",
+                    desc: "Breathtaking views from one of Sri Lanka's best hikes"
+                },
+                {
+                    src: "https://images.unsplash.com/photo-1564507004663-b6dfb3e2ede5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80",
+                    title: "Traditional Sri Lankan Cuisine",
+                    desc: "Experience the authentic flavors of Sri Lanka"
+                },
+                {
+                    src: "https://images.unsplash.com/photo-1552465011-b4e30bf7349d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80",
+                    title: "Wildlife Safari",
+                    desc: "Encounter elephants and leopards in their natural habitat"
+                }
+            ];
+            
+            // Open lightbox when gallery item is clicked
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    currentIndex = parseInt(this.getAttribute('data-index'));
+                    openLightbox(currentIndex);
+                });
+            });
+            
+            // Open lightbox with specific image
+            function openLightbox(index) {
+                currentIndex = index;
+                updateLightboxImage();
+                lightboxModal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+                isZoomed = false;
+                lightboxImage.classList.remove('zoomed');
+            }
+            
+            // Update lightbox image and info
+            function updateLightboxImage() {
+                const item = galleryData[currentIndex];
+                lightboxImage.src = item.src;
+                lightboxImage.alt = item.title;
+                imageTitle.textContent = item.title;
+                imageCounter.textContent = `${currentIndex + 1} / ${galleryData.length}`;
+            }
+            
+            // Close lightbox
+            closeLightbox.addEventListener('click', closeLightboxFunc);
+            
+            function closeLightboxFunc() {
+                lightboxModal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
+            }
+            
+            // Navigate to previous image
+            prevBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex - 1 + galleryData.length) % galleryData.length;
+                updateLightboxImage();
+                resetZoom();
+            });
+            
+            // Navigate to next image
+            nextBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex + 1) % galleryData.length;
+                updateLightboxImage();
+                resetZoom();
+            });
+            
+            // Zoom functionality
+            lightboxImage.addEventListener('click', function() {
+                isZoomed = !isZoomed;
+                this.classList.toggle('zoomed', isZoomed);
+            });
+            
+            function resetZoom() {
+                isZoomed = false;
+                lightboxImage.classList.remove('zoomed');
+            }
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (lightboxModal.style.display === 'block') {
+                    switch(e.key) {
+                        case 'Escape':
+                            closeLightboxFunc();
+                            break;
+                        case 'ArrowLeft':
+                            prevBtn.click();
+                            break;
+                        case 'ArrowRight':
+                            nextBtn.click();
+                            break;
+                        case ' ':
+                            e.preventDefault();
+                            lightboxImage.click();
+                            break;
+                    }
+                }
+            });
+            
+            // Close lightbox when clicking outside the image
+            lightboxModal.addEventListener('click', function(e) {
+                if (e.target === lightboxModal) {
+                    closeLightboxFunc();
+                }
+            });
+            
+            // Touch swipe support for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            lightboxModal.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            lightboxModal.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                
+                if (touchStartX - touchEndX > swipeThreshold) {
+                    // Swipe left - next image
+                    nextBtn.click();
+                } else if (touchEndX - touchStartX > swipeThreshold) {
+                    // Swipe right - previous image
+                    prevBtn.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
