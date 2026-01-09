@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Tour Packages - Sri Lanka Paradise Tours</title>
+    <!-- Link your CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Additional styles for packages page */
+        .packages-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('assets/img/sections/tours.webp');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0 60px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .packages-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .packages-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #f0f0f0;
+        }
+        
+        .breadcrumb {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .breadcrumb a {
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--secondary);
+        }
+        
+        .breadcrumb i {
+            margin: 0 8px;
+        }
+        
+        .package-count {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
+        .package-count span {
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .packages-grid-all {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .filter-container {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .filter-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 30px;
+            padding: 12px 25px;
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-home:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .packages-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .packages-grid-all {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 20px;
+            }
+            
+            .filter-options {
+                justify-content: center;
+            }
+            
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .packages-hero {
+                padding: 80px 0 40px;
+            }
+            
+            .packages-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .packages-grid-all {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Include your header/navigation -->
+    <header>
+        <!-- Your header content here -->
+    </header>
+
+    <!-- Packages Hero Section -->
+    <section class="packages-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>All Packages</span>
+            </div>
+            <h1>Explore All Tour Packages</h1>
+            <p>Discover our complete collection of Sri Lanka tour packages. From budget-friendly tours to luxury experiences, find your perfect adventure.</p>
+        </div>
+    </section>
+
+    <!-- All Packages Section -->
+    <section class="section packages" id="all-packages">
+        <div class="container">
+            <div class="package-count">
+                Showing <span>9</span> amazing tour packages
+            </div>
+            
+            <!-- Optional Filter Section -->
+            <div class="filter-container">
+                <div class="filter-title">
+                    <i class="fas fa-filter"></i>
+                    <h3>Filter by Category</h3>
+                </div>
+                <div class="filter-options">
+                    <button class="filter-btn active" data-filter="all">All Packages</button>
+                    <button class="filter-btn" data-filter="budget">Budget Tours</button>
+                    <button class="filter-btn" data-filter="highlight">Highlights</button>
+                    <button class="filter-btn" data-filter="heritage">Heritage</button>
+                    <button class="filter-btn" data-filter="beach">Beach Holidays</button>
+                    <button class="filter-btn" data-filter="honeymoon">Honeymoon</button>
+                </div>
+            </div>
+
+            <div class="packages-grid-all">
+                <!-- Package 1 -->
+                <div class="package-card" data-category="budget">
+                    <div class="package-img">
+                        <img src="assets/img/tours/one.webp" alt="05 Day Budget Tour" />
+                    </div>
+                    <div class="package-content">
+                        <h3>05 Day Sri Lanka Budget Tour Package</h3>
+                        <div class="package-price">$40</div>
+                        <ul class="package-features">
+                            <li>4 Nights / 5 Days</li>
+                            <li>City sightseeing</li>
+                            <li>Professional driver</li>
+                            <li>Air-conditioned van</li>
+                        </ul>
+                        <a href="https://wa.me/94773324056" class="btn">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="package-card" data-category="highlight">
+                    <div class="package-img">
+                        <img src="assets/img/tours/two.webp" alt="Highlights of Sri Lanka" />
+                    </div>
+                    <div class="package-content">
+                        <h3>Highlights of Sri Lanka</h3>
+                        <div class="package-price">$70</div>
+                        <ul class="package-features">
+                            <li>10 Days</li>
+                            <li>Explore multiple locations</li>
+                            <li>Professional driver</li>
+                            <li>Air-conditioned van</li>
+                            <li>Bottled water included</li>
+                        </ul>
+                        <a href="https://wa.me/94773324056" class="btn">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="package-card" data-category="highlight">
+                    <div class="package-img">
+                        <img src="assets/img/tours/three.webp" alt="Highlights of Sri Lanka - 2" />
+                    </div>
+                    <div class="package-content">
+                        <h3>Highlights of Sri Lanka - 2</h3>
+                        <div class="package-price">$35</div>
+                        <ul class="package-features">
+                            <li>5 Days</li>
+                            <li>Flight tracking</li>
+                            <li>Meet & greet service</li>
+                            <li>Air-conditioned van</li>
+                            <li>Luggage assistance</li>
+                        </ul>
+                        <a href="https://wa.me/94773324056" class="btn">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Package 4 -->
+                <div class="package-card" data-category="budget">
+                    <div class="package-img">
+                        <img src="assets/img/tours/four.webp" alt="Sri Lanka 09 Day Tour" />
+                    </div>
+                    <div class="package-content">
+                        <h3>Sri Lanka 09 Day Tour</h3>
+                        <div class="package-price">$40</div>
+                        <ul class="package-features">
+                            <li>09 Days</li>
+                            <li>City sightseeing</li>
+                            <li>Professional driver</li>
+                            <li>Air-conditioned van</li>
+                        </ul>
+                        <a href="https://wa.me/94773324056" class="btn">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Package 5 -->
+                <div class="package-card" data-category="budget">
+                    <div class="package-img">
+                        <img src="assets/img/tours/five.webp" alt="Sri Lanka Budget Tour Package" />
+                    </div>
+                    <div class="package-content">
+                        <h3>Sri Lanka Budget Tour Package</h3>
+                        <div class="package-price">$35</div>
+                        <ul class="package-features">
+                            <li>7 Nights / 8 Days</li>
+                            <li>Flight tracking</li>
+                            <li>Meet & greet service</li>
+                            <li>Air-conditioned van</li>
+                            <li>Luggage assistance</li>
+                        </ul>
+                        <a href="https://wa.me/94773324056" class="btn">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Package 6 -->
+                <div class="package-card" data-category="budget">
+                    <div class="package-img">
+                        <img src="assets/img/tours/six.webp" alt="Classic Mini Tour" />
+                    </div>
+                    <div class="package-content">
+                        <h3>Classic Mini Tour in Sri Lanka</h3>
+                        <div class="package-price">$35</div>
+                        <ul class="package-features">
+                            <li>7 Nights / 8 Days</li>
+                            <li>Flight tracking</li>
+                            <li>Meet & greet service</li>
+                            <li>Air-conditioned van</li>
+                            <li>Luggage assistance</li>
+                        </ul>
+                        <a href="https://wa.me/94773324056" class="btn">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Package 7 -->
+                <div class="package-card" data-category="heritage">
+                    <div class="package-img">
+                        <img src="assets/img/tours/nine.webp" alt="Sri Lankan Heritage Tour" />
+                    </div>
+                    <div class="package-content">
+                        <h3>Sri Lankan Heritage Tour</h3>
+                        <div class="package-price">$40</div>
+                        <ul class="package-features">
+                            <li>09 Days</li>
+                            <li>City sightseeing</li>
+                            <li>Professional driver</li>
+                            <li>Air-conditioned van</li>
+                        </ul>
+                        <a href="https://wa.me/94773324056" class="btn">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Package 8 -->
+                <div class="package-card" data-category="honeymoon">
+                    <div class="package-img">
+                        <img src="assets/img/tours/ten.webp" alt="Sri Lanka Honeymoon Package" />
+                    </div>
+                    <div class="package-content">
+                        <h3>Sri Lanka Honeymoon Package</h3>
+                        <div class="package-price">$35</div>
+                        <ul class="package-features">
+                            <li>7 Nights / 8 Days</li>
+                            <li>Flight tracking</li>
+                            <li>Meet & greet service</li>
+                            <li>Air-conditioned van</li>
+                            <li>Luggage assistance</li>
+                        </ul>
+                        <a href="https://wa.me/94773324056" class="btn">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Package 9 -->
+                <div class="package-card" data-category="beach">
+                    <div class="package-img">
+                        <img src="assets/img/tours/seven.webp" alt="Sri Lanka Beach Holiday" />
+                    </div>
+                    <div class="package-content">
+                        <h3>Sri Lanka Beach Holiday</h3>
+                        <div class="package-price">$40</div>
+                        <ul class="package-features">
+                            <li>09 Days</li>
+                            <li>City sightseeing</li>
+                            <li>Professional driver</li>
+                            <li>Air-conditioned van</li>
+                        </ul>
+                        <a href="https://wa.me/94773324056" class="btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-all-container" style="text-align: center;">
+                <a href="index.html" class="back-to-home">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include your footer -->
+    <footer>
+        <!-- Your footer content here -->
+    </footer>
+
+    <script>
+        // Filter functionality for packages page
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const packageCards = document.querySelectorAll('.package-card');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Show/hide packages based on filter
+                    packageCards.forEach(card => {
+                        const category = card.getAttribute('data-category');
+                        
+                        if (filterValue === 'all' || filterValue === category) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Add animation to cards on page load
+            packageCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body>
+</html>
