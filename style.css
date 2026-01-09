@@ -1223,7 +1223,9 @@ footer {
   .mobile-toggle {
     display: block;
   }
-
+  .header-container {
+    padding: 20px 10px;
+  }
   .nav-menu {
     position: fixed;
     top: 70px;
