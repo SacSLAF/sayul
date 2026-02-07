@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $recaptcha_response = $_POST['g-recaptcha-response'];
 
     // Verify reCAPTCHA
-    $secret = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe'; // Replace with your actual secret key
+    $secret = '6Ld9WGMsAAAAAB_klFEUmjJ7doUMzHoKjNTQXNr4'; // Replace with your actual secret key
     $verify_url = "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$recaptcha_response";
     $response = file_get_contents($verify_url);
     $response_data = json_decode($response);
@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="password" name="password" required>
             </div>
             <div class="recaptcha-container">
-                <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+                <div class="g-recaptcha" data-sitekey="6Ld9WGMsAAAAACaLboBBh5fZ9bcxoshNR2tyekav"></div>
             </div>
             <button type="submit" class="btn-login">Login</button>
         </form>

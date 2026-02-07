@@ -537,7 +537,7 @@ $reviews_result = $conn->query($reviews_sql);
                         <textarea name="review_text" required style="width: 100%; height: 100px; padding: 10px; border: 1px solid #ddd; border-radius: 5px; resize: vertical;"></textarea>
                     </div>
                     <div class="recaptcha-container" style="display: flex; justify-content: center; margin-bottom: 15px;">
-                        <div class="g-recaptcha" data-sitekey="Ld9WGMsAAAAACaLboBBh5fZ9bcxoshNR2tyekav"></div>
+                        <div class="g-recaptcha" data-sitekey="6Ld9WGMsAAAAACaLboBBh5fZ9bcxoshNR2tyekav"></div>
                     </div>
                     <button type="submit" name="submit_review" class="btn btn-primary" style="width: 100%;">Submit Review</button>
                 </form>
