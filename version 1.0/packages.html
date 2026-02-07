@@ -389,17 +389,211 @@
         </div>
     </section>
 
+    <!-- Itinerary Modal -->
+    <div id="itineraryModal" class="itinerary-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modalTitle">Tour Name</h2>
+            <div id="modalItinerary" class="itinerary-details">
+                <!-- Itinerary content will be injected here -->
+            </div>
+            <a href="https://wa.me/94773324056" class="btn btn-whatsapp" style="margin-top: 20px;">Book This Tour</a>
+        </div>
+    </div>
+
     <!-- Include your footer -->
     <footer>
-        <!-- Your footer content here -->
+        <div class="container">
+            <div class="footer-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; padding: 40px 0;">
+              <div class="footer-column">
+                <h3>Explore Sri Lanka</h3>
+                <p>
+                  Your trusted partner for private van hire with professional
+                  drivers across Sri Lanka.
+                </p>
+              </div>
+    
+              <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul class="footer-links" style="list-style: none;">
+                  <li><i class="fas fa-phone-alt"></i> +94 77 332 4056</li>
+                  <li class="mail-item"><i class="fas fa-envelope"></i> sayulceylonparadisetours@gmail.com</li>
+                  <li><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</li>
+                </ul>
+              </div>
+            </div>
+            <div class="copyright" style="text-align: center; border-top: 1px solid #444; padding-top: 20px; margin-top: 20px;">
+              <p>&copy; 2026 Explore Sri Lanka - Sayul Ceylon Tours. All rights reserved.</p>
+            </div>
+          </div>
     </footer>
 
+    <style>
+        /* Modal Styles */
+        .itinerary-modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.6); 
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; 
+            padding: 30px;
+            border: 1px solid #888;
+            width: 80%; 
+            max-width: 800px;
+            border-radius: 12px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            position: relative;
+            animation: modalSlide 0.4s ease;
+        }
+
+        @keyframes modalSlide {
+            from {transform: translateY(-50px); opacity: 0;}
+            to {transform: translateY(0); opacity: 1;}
+        }
+
+        .close-modal {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .itinerary-day {
+            margin-bottom: 20px;
+            border-left: 3px solid var(--primary);
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .itinerary-day h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .view-itinerary-btn {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+        
+        .view-itinerary-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+    </style>
+
     <script>
+        // Data for itineraries
+        const tourItineraries = {
+            'budget-5-day': [
+                { day: 'Day 1', title: 'Arrival & Negombo', desc: 'Pick up from airport, check-in to Negombo hotel, relax at the beach.' },
+                { day: 'Day 2', title: 'Sigiriya & Dambulla', desc: 'Drive to Sigiriya, visit the Lion Rock fortress and Dambulla Cave Temple.' },
+                { day: 'Day 3', title: 'Kandy', desc: 'Visit Temple of the Tooth Relic, Royal Botanical Gardens, and cultural show.' },
+                { day: 'Day 4', title: 'Nuwara Eliya', desc: 'Scenic drive to tea country, visit tea factory and waterfalls.' },
+                { day: 'Day 5', title: 'Departure', desc: 'Drive back to Colombo/Airport for departure.' }
+            ],
+            'highlights-10-day': [
+                { day: 'Day 1', title: 'Airport to Anuradhapura', desc: 'Welcome and transfer to the ancient city.' },
+                { day: 'Day 2', title: 'Anuradhapura Sightseeing', desc: 'Explore the ruins and sacred bo tree.' },
+                { day: 'Day 3', title: 'Sigiriya', desc: 'Climb Sigiriya Rock and Minneriya Safari.' },
+                { day: 'Day 4', title: 'Kandy', desc: 'Transfer to Kandy via Spice Garden.' },
+                { day: 'Day 5', title: 'Kandy City Tour', desc: 'Temple of Tooth, Lake, and Shopping.' },
+                { day: 'Day 6', title: 'Ella', desc: 'Train ride from Kandy to Ella (scenic route).' },
+                { day: 'Day 7', title: 'Ella Exploration', desc: 'Little Adams Peak and Nine Arch Bridge.' },
+                { day: 'Day 8', title: 'Yala', desc: 'Transfer to Yala for Wildlife Safari.' },
+                { day: 'Day 9', title: 'Galle', desc: 'Visit Galle Fort and Dutch monuments.' },
+                { day: 'Day 10', title: 'Departure', desc: 'Transfer to Airport.' }
+            ]
+            // Add more as needed
+        };
+
+        // Modal Logic
+        const modal = document.getElementById("itineraryModal");
+        const span = document.getElementsByClassName("close-modal")[0];
+        const modalTitle = document.getElementById("modalTitle");
+        const modalBody = document.getElementById("modalItinerary");
+
+        // Function to open modal
+        function openItinerary(tourId, tourName) {
+            modal.style.display = "block";
+            modalTitle.innerText = tourName;
+            
+            const itinerary = tourItineraries[tourId];
+            let html = "";
+            
+            if (itinerary) {
+                itinerary.forEach(item => {
+                    html += `<div class="itinerary-day">
+                        <h4>${item.day}: ${item.title}</h4>
+                        <p>${item.desc}</p>
+                    </div>`;
+                });
+            } else {
+                html = "<p>Itinerary details coming soon. Please contact us for the full plan.</p>";
+            }
+            
+            modalBody.innerHTML = html;
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
         // Filter functionality for packages page
         document.addEventListener('DOMContentLoaded', function() {
             const filterBtns = document.querySelectorAll('.filter-btn');
             const packageCards = document.querySelectorAll('.package-card');
             
+            // Add "View Itinerary" buttons to cards
+            packageCards.forEach((card, index) => {
+                // Logic to identify card and add button
+                // For demo, adding to all. In production, mapping IDs is better.
+                const title = card.querySelector('h3').innerText;
+                let id = 'default';
+                if(title.includes('Budget')) id = 'budget-5-day';
+                if(title.includes('Highlights') && title.includes('10')) id = 'highlights-10-day';
+                
+                const btn = document.createElement('button');
+                btn.className = 'view-itinerary-btn';
+                btn.innerText = 'View Itinerary';
+                btn.onclick = () => openItinerary(id, title);
+                
+                // Insert before the Book Now button
+                const bookBtn = card.querySelector('.btn');
+                card.querySelector('.package-content').insertBefore(btn, bookBtn);
+            });
+
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     // Remove active class from all buttons

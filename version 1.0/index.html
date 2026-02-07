@@ -3,13 +3,93 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Explore Sri Lanka | Sayul Ceylon Tours</title>
+    <title>Sri Lanka Private Tours & Chauffeur Services | Sayul Ceylon</title>
+    <meta name="description" content="Explore Sri Lanka in comfort with our private van hire and chauffeur services. Custom tour planning, airport transfers, and multi-day tours." />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     +
     <link rel="stylesheet" href="style.css" />
+    <style>
+        .destination-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        .destination-card:hover { transform: scale(1.03); }
+        .destination-card img { width: 100%; height: 100%; object-fit: cover; }
+        .destination-overlay {
+            position: absolute; bottom: 0; left: 0; width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white; padding: 20px;
+        }
+        .faq-item {
+            background: #fff;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            background: #f9f9f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s;
+        }
+        .faq-item.active .faq-answer {
+            padding: 15px 20px;
+            max-height: 200px;
+        }
+        .faq-item.active .faq-question {
+            background: #eefec3;
+            color: #1a6d38;
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "Sayul Ceylon Tours",
+      "image": "https://sayulceylontours.com/assets/img/logo-ai-tiny.png",
+      "@id": "https://sayulceylontours.com",
+      "url": "https://sayulceylontours.com",
+      "telephone": "+94773324056",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Colombo",
+        "addressLocality": "Colombo",
+        "addressCountry": "LK"
+      },
+      "priceRange": "$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      }
+    }
+    </script>
   </head>
   <body>
     <!-- Header & Navigation -->
@@ -32,7 +112,7 @@
           <li><a href="#about">About Us</a></li>
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="https://wa.me/94773324056">Book Now</a></li>
+          <li><a href="https://wa.me/94773324056" target="_blank" style="color: #25d366; font-weight: bold;">Book Now <i class="fab fa-whatsapp"></i></a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -48,8 +128,8 @@
       </div>
       <div class="video-overlay"></div>
       <div class="container hero-content">
-        <h1>Explore Sri Lanka in Comfort</h1>
-        <p>Private Van Hire with Professional Driver</p>
+        <h1>Sri Lanka Private Tours & Chauffeur Adventures</h1>
+        <p>Complete Tour Planning + Private Van Hire with Professional Driver</p>
         <div class="hero-buttons">
           <a href="#packages" class="btn btn-primary">View Packages</a>
           <a
@@ -67,6 +147,37 @@
           </a> -->
         </div>
       </div>
+    </section>
+
+    <!-- Why Choose Us / Trust Signals -->
+    <section class="section why-choose-us" id="why-choose-us" style="background: #fdfdfd; padding-bottom: 20px;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Travel With Us?</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Certified Drivers</h3>
+                    <p>Experienced & licensed chauffeur guides.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-car-side"></i>
+                    <h3>Comfort & Safety</h3>
+                    <p>Modern, AC vans maintained to high standards.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-clipboard-check"></i>
+                    <h3>Custom Itineraries</h3>
+                    <p>We plan the perfect trip around your interests.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>24/7 Support</h3>
+                    <p>We are always available to assist you.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Packages Section -->
@@ -87,14 +198,17 @@
             </div>
             <div class="package-content">
               <h3>05 Day Sri Lanka Budget Tour Package</h3>
-              <div class="package-price">$40</div>
+              <div class="package-price">$40 <span style="font-size: 0.8rem; color: #666; font-weight: normal;">/ day (Transport Only)</span></div>
               <ul class="package-features">
                 <li>4 Nights / 5 Days</li>
                 <li>City sightseeing</li>
                 <li>Professional driver</li>
                 <li>Air-conditioned van</li>
               </ul>
-              <a href="https://wa.me/94773324056" class="btn">Book Now</a>
+              <div class="package-includes" style="margin-top: 10px; font-size: 0.9rem; color: #555;">
+                  <strong>Includes:</strong> Fuel, Parking, Driver Accommodation
+              </div>
+              <a href="https://wa.me/94773324056" class="btn" style="margin-top: 15px;">Book Now</a>
             </div>
           </div>
 
@@ -108,7 +222,7 @@
             </div>
             <div class="package-content">
               <h3>Highlights of Sri Lanka</h3>
-              <div class="package-price">$70</div>
+              <div class="package-price">$70 <span style="font-size: 0.8rem; color: #666; font-weight: normal;">/ day (Transport Only)</span></div>
               <ul class="package-features">
                 <li>10 Days</li>
                 <li>Explore multiple locations</li>
@@ -116,7 +230,10 @@
                 <li>Air-conditioned van</li>
                 <li>Bottled water included</li>
               </ul>
-              <a href="https://wa.me/94773324056" class="btn">Book Now</a>
+              <div class="package-includes" style="margin-top: 10px; font-size: 0.9rem; color: #555;">
+                  <strong>Includes:</strong> Fuel, Tolls, Driver Meals
+              </div>
+              <a href="https://wa.me/94773324056" class="btn" style="margin-top: 15px;">Book Now</a>
             </div>
           </div>
 
@@ -130,7 +247,7 @@
             </div>
             <div class="package-content">
               <h3>Highlights of Sri Lanka - 2</h3>
-              <div class="package-price">$35</div>
+              <div class="package-price">$35 <span style="font-size: 0.8rem; color: #666; font-weight: normal;">/ day (Transport Only)</span></div>
               <ul class="package-features">
                 <li>5 Days</li>
                 <li>Flight tracking</li>
@@ -138,7 +255,10 @@
                 <li>Air-conditioned van</li>
                 <li>Luggage assistance</li>
               </ul>
-              <a href="https://wa.me/94773324056" class="btn">Book Now</a>
+              <div class="package-includes" style="margin-top: 10px; font-size: 0.9rem; color: #555;">
+                  <strong>Includes:</strong> Airport Pickup, Fuel, Parking
+              </div>
+              <a href="https://wa.me/94773324056" class="btn" style="margin-top: 15px;">Book Now</a>
             </div>
           </div>
           <!-- package 4  -->
@@ -373,6 +493,38 @@
         </div>
       </div>
     </section> -->
+    <!-- Popular Destinations -->
+    <section class="section destinations" style="background: #f4f4f4;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Destinations</h2>
+            </div>
+            <div class="gallery-grid"> <!-- Reusing gallery grid layout -->
+                <div class="destination-card">
+                    <img src="assets/img/gallery/sigiriya.webp" alt="Sigiriya">
+                    <div class="destination-overlay">
+                        <h3>Sigiriya</h3>
+                        <p>The 8th Wonder of the World</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="assets/img/gallery/kandy.webp" alt="Kandy">
+                    <div class="destination-overlay">
+                        <h3>Kandy</h3>
+                        <p>Cultural Capital & Temple of Tooth</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="assets/img/gallery/weligama.webp" alt="Ella"> <!-- Using generic image for now -->
+                    <div class="destination-overlay">
+                        <h3>Ella</h3>
+                        <p>Hiking, Waterfalls & Scenic Train</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section" id="gallery">
       <div class="container">
           <div class="section-title">
@@ -567,87 +719,30 @@
       </div>
     </section>
 
-    <!-- Booking Section -->
-    <section class="section" id="booking" style="display: none">
-      <div class="container">
-        <div class="section-title">
-          <h2>Book Your Journey</h2>
+    <!-- Verified Reviews Trust Section -->
+    <section class="section trust-badges" style="background: #fff; padding: 40px 0; text-align: center;">
+        <div class="container">
+            <h3>Trusted by Travelers Worldwide</h3>
+            <div class="badges-container" style="display: flex; justify-content: center; gap: 30px; margin-top: 20px; flex-wrap: wrap;">
+                <!-- Placeholders for Review Platforms -->
+                <div class="trust-badge">
+                    <i class="fab fa-tripadvisor" style="font-size: 40px; color: #00af87;"></i>
+                    <p><strong>TripAdvisor</strong><br>Excellent Reviews</p>
+                </div>
+                <div class="trust-badge">
+                    <i class="fab fa-google" style="font-size: 40px; color: #4285F4;"></i>
+                    <p><strong>Google Reviews</strong><br>5-Star Rated</p>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-shield-alt" style="font-size: 40px; color: #0056b3;"></i>
+                    <p><strong>Safe & Secure</strong><br>Certified Operator</p>
+                </div>
+            </div>
         </div>
-
-        <div class="booking-form">
-          <form id="bookingForm">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required />
-              </div>
-              <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" required />
-              </div>
-              <div class="form-group">
-                <label for="package">Select Package</label>
-                <select id="package" name="package" required>
-                  <option value="">Choose a package</option>
-                  <option value="half-day">Half Day Tour - $40</option>
-                  <option value="full-day">Full Day Tour - $70</option>
-                  <option value="airport">Airport Transfer - $35</option>
-                  <option value="multi-day">Multi-Day Tour - Custom</option>
-                  <option value="custom">Custom Hire - Custom</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="date">Preferred Date</label>
-                <input type="date" id="date" name="date" required />
-              </div>
-              <div class="form-group">
-                <label for="passengers">Number of Passengers</label>
-                <select id="passengers" name="passengers" required>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6+</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="message">Special Requests</label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Tell us about your travel plans, pickup location, or any special requirements..."
-              ></textarea>
-            </div>
-
-            <div class="form-submit">
-              <button type="submit" class="btn">Submit Booking Request</button>
-              <p style="margin-top: 15px">
-                Or contact us directly via
-                <a
-                  href="https://wa.me/94773324056"
-                  class="whatsapp-contact"
-                  target="_blank"
-                  ><i class="fab fa-whatsapp"></i> WhatsApp</a
-                >
-              </p>
-            </div>
-          </form>
-        </div>
-      </div>
     </section>
+
+    <!-- Booking Section Removed as per request -->
+    <!-- <section class="section" id="booking"> ... </section> -->
 
     <!-- Contact Section -->
     <section class="section contact" id="contact">
@@ -667,11 +762,21 @@
                       href="https://wa.me/94773324056"
                       class="whatsapp-contact"
                       target="_blank"
+                      style="font-size: 1.5rem; padding: 1.5rem 3rem; background: #25d366; color: white; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4); animation: pulse 2s infinite;"
                   >
-                      <i class="fab fa-whatsapp"></i> Message us on WhatsApp
+                      <i class="fab fa-whatsapp" style="font-size: 2rem;"></i> 
+                      <strong>Book Now on WhatsApp</strong>
                   </a>
                   
-                  <div class="social-media">
+                  <style>
+                    @keyframes pulse {
+                        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+                        70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+                        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+                    }
+                  </style>
+
+                  <div class="social-media" style="margin-top: 30px;">
                       <a href="#" class="social-icon facebook">
                           <i class="fab fa-facebook-f"></i>
                       </a>
@@ -702,6 +807,41 @@
       </div>
 
   </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq" id="faq" style="background: white;">
+        <div class="container" style="max-width: 800px;">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">What is included in the tour price? <i class="fas fa-plus"></i></div>
+                    <div class="faq-answer">
+                        <p>Our standard packages typically include the private vehicle (AC van/car), professional English-speaking driver, fuel, parking fees, and driver's accommodation/meals. Entrance tickets and guest meals are usually excluded unless specified.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can I customize my itinerary? <i class="fas fa-plus"></i></div>
+                    <div class="faq-answer">
+                        <p>Absolutely! All our tours are fully customizable. You can adjust the itinerary, add/remove locations, or change the duration to suit your preferences.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How do I book and pay? <i class="fas fa-plus"></i></div>
+                    <div class="faq-answer">
+                        <p>You can fill out the booking form or contact us via WhatsApp to confirm availability. We accept cash payments upon arrival or bank transfers for advance deposits.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Is it safe to travel in Sri Lanka? <i class="fas fa-plus"></i></div>
+                    <div class="faq-answer">
+                        <p>Yes, Sri Lanka is very safe for tourists. Our drivers are experienced and prioritize your safety at all times. We also follow all recommended health and safety guidelines.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -763,6 +903,36 @@
       </div>
     </footer>
 
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/94773324056" class="floating-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <style>
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        .floating-whatsapp:hover {
+            background-color: #128c7e;
+            transform: scale(1.1);
+        }
+    </style>
+
     <script src="assets/js/lightbox.js"></script>
     <script src="assets/js/contact.js"></script>
     <script>
@@ -801,6 +971,14 @@
           header.style.backgroundColor = "rgba(255, 255, 255, 0.95)";
           header.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
         }
+      });
+
+      // FAQ Toggle
+      document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', event => {
+            const parent = item.parentNode;
+            parent.classList.toggle('active');
+        });
       });
     </script>
   </body>
