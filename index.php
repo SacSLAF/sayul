@@ -3,20 +3,32 @@ require_once 'db_connect.php';
 
 // Handle Review Submission
 $review_msg = "";
+$review_err = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_review'])) {
     $name = $_POST['reviewer_name'];
     $country = $_POST['reviewer_country'];
     $text = $_POST['review_text'];
     $rating = $_POST['rating'];
-    
-    $stmt = $conn->prepare("INSERT INTO reviews (reviewer_name, reviewer_country, review_text, rating) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("sssi", $name, $country, $text, $rating);
-    if ($stmt->execute()) {
-        $review_msg = "Thank you! Your review has been submitted for moderation.";
+    $recaptcha_response = $_POST['g-recaptcha-response'];
+
+    // Verify reCAPTCHA
+    $secret = '6Ld9WGMsAAAAAB_klFEUmjJ7doUMzHoKjNTQXNr4';
+    $verify_url = "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$recaptcha_response";
+    $response = file_get_contents($verify_url);
+    $response_data = json_decode($response);
+
+    if (!$response_data->success) {
+        $review_err = "Please complete the reCAPTCHA correctly.";
     } else {
-        $review_msg = "Error submitting review. Please try again.";
+        $stmt = $conn->prepare("INSERT INTO reviews (reviewer_name, reviewer_country, review_text, rating) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("sssi", $name, $country, $text, $rating);
+        if ($stmt->execute()) {
+            $review_msg = "Thank you! Your review has been submitted for moderation.";
+        } else {
+            $review_err = "Error submitting review. Please try again.";
+        }
+        $stmt->close();
     }
-    $stmt->close();
 }
 
 // Fetch Featured Packages
@@ -36,6 +48,7 @@ $reviews_result = $conn->query($reviews_sql);
     <meta name="description" content="Explore Sri Lanka in comfort with our private van hire and chauffeur services. Custom tour planning, airport transfers, and multi-day tours." />
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         .destination-card {
             position: relative;
@@ -340,6 +353,11 @@ $reviews_result = $conn->query($reviews_sql);
                 <?php echo $review_msg; ?>
             </div>
           <?php endif; ?>
+          <?php if($review_err): ?>
+            <div style="background: #f8dbdb; color: #721c24; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center; border: 1px solid #f5c6cb;">
+                <?php echo $review_err; ?>
+            </div>
+          <?php endif; ?>
         </div>
 
         <div class="testimonials-slider">
@@ -517,6 +535,9 @@ $reviews_result = $conn->query($reviews_sql);
                     <div class="form-group" style="margin-bottom: 20px;">
                         <label style="display: block; margin-bottom: 5px;">Your Experience</label>
                         <textarea name="review_text" required style="width: 100%; height: 100px; padding: 10px; border: 1px solid #ddd; border-radius: 5px; resize: vertical;"></textarea>
+                    </div>
+                    <div class="recaptcha-container" style="display: flex; justify-content: center; margin-bottom: 15px;">
+                        <div class="g-recaptcha" data-sitekey="Ld9WGMsAAAAACaLboBBh5fZ9bcxoshNR2tyekav"></div>
                     </div>
                     <button type="submit" name="submit_review" class="btn btn-primary" style="width: 100%;">Submit Review</button>
                 </form>
